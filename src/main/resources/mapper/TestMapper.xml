@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TestMapper">
+
+    <resultMap id="TestMap" type="com.example.demo.Bean.Test">
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+
+    <select id="findByName" parameterType="java.lang.String" resultMap="TestMap">
+        select * from  test where 1=1 AND name = #{name}
+    </select>
+
+    <delete id="deleteTest" parameterType="java.lang.Integer">
+        delete from test where 1=1 and name=#{name}
+    </delete>
+
+    <insert id="addTest" parameterType="java.lang.Integer">
+        insert into test
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="test.name != null">
+                name,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="test.name != null">
+                #{test.name,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>
