@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TestMapper">
+
+    <resultMap id="BlackMap" type="com.example.demo.Bean.Blacklist">
+        <result column="add_user" jdbcType="VARCHAR" property="add_user"/>
+        <result column="black_user" jdbcType="VARCHAR" property="black_user"/>
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+    </resultMap>
+
+    <insert id="addBlackList" parameterType="com.example.demo.Bean.Blacklist">
+        insert into blacklist (blacklist.id,blacklist.add_user,blacklist.black_user) values (#{blacklist.id},#{blacklist.add_user},#{blacklist.black_user})
+    </insert>
+
+    <delete id="deleteBlackList" parameterType="com.example.demo.Bean.Blacklist">
+        delete from blacklist where id=#{blacklist.id}
+    </delete>
+
+    <select id="findByBlacklist" parameterType="com.example.demo.Bean.Blacklist" resultMap="BlackMap">
+        select * from blacklist where 1=1 and add_user=#{blacklist.add_user}
+    </select>
+
+</mapper>
