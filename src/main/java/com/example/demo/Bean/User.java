@@ -15,6 +15,16 @@ public class User {
 
     private String id;
 
+    private String identity;
+
+    public String getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(String identity) {
+        this.identity = identity;
+    }
+
     public String getName() {
         return name;
     }
@@ -63,6 +73,7 @@ public class User {
                 ", age='" + age + '\'' +
                 ", password='" + password + '\'' +
                 ", id='" + id + '\'' +
+                ", identity='" + identity + '\'' +
                 '}';
     }
 }

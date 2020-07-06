@@ -41,4 +41,11 @@ public interface UserMapper {
      * @return int 0 false  >0 true
      */
     int deleteUser(@Param("user")User user);
+
+    /**
+     * @name findByUser 通过条件查询用户
+     * @param user 封装查询条件
+     * @return java.util.List<com.example.demo.Bean.User>
+     */
+    List<User> findByUser(@Param("user")User user);
 }

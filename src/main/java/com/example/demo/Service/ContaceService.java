@@ -30,4 +30,5 @@ public class ContaceService {
     public int deleteContace(Contace contace){
         return contaceMapper.deleteContace(contace);
     }
+
 }

@@ -8,18 +8,58 @@
         <result column="age" jdbcType="VARCHAR" property="age"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="identity" jdbcType="VARCHAR" property="identity"/>
     </resultMap>
 
     <select id="findAll" resultMap="UserMap">
         select * from user
     </select>
 
+    <select id="findByUser" resultMap="UserMap" parameterType="com.example.demo.Bean.User">
+        select * from user where 1=1
+        <if test="user.id != null and user.id != ''">
+            and id=#{user.id}
+        </if>
+        <if test="user.name != null and user.name != ''">
+            and name=#{user.name}
+        </if>
+        <if test="user.sex != null and user.sex != ''">
+            and sex=#{user.sex}
+        </if>
+        <if test="user.age != null and user.age != ''">
+            and age=#{user.age}
+        </if>
+        <if test="user.identity != null and user.identity != ''">
+            and identity=#{user.identity}
+        </if>
+    </select>
+
     <insert id="addUser" parameterType="com.example.demo.Bean.User">
-        insert into user (name,sex,age,password,id) values (#{user.name},#{user.sex},#{user.age},#{user.password},#{user.id})
+        insert into user (name,sex,age,password,id,identity) values (#{user.name},#{user.sex},#{user.age},#{user.password},#{user.id},#{user.identity})
     </insert>
 
     <update id="updateUser" parameterType="com.example.demo.Bean.User">
-        update user set user.name=#{user.name},sex=#{user.sex},password=#{user.password},age=#{user.age} where id=#{user.id}
+        update user set
+        <trim>
+            <if test="user.name != null and user.name != ''">
+                user.name=#{user.name},
+            </if>
+            <if test="user.sex != null and user.sex != ''">
+                user.sex=#{user.sex},
+            </if>
+            <if test="user.password != null and user.password != ''">
+                user.password=#{user.password},
+            </if>
+            <if test="user.age != null and user.age != ''">
+                user.age=#{user.age},
+            </if>
+            <if test="user.identity != null and user.identity != ''">
+                user.identity=#{user.identity}
+            </if>
+        </trim>
+        <trim>
+            where user.id=#{user.id}
+        </trim>
     </update>
 
     <delete id="deleteUser" parameterType="com.example.demo.Bean.User">

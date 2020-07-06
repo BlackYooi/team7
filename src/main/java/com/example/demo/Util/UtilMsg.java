@@ -17,7 +17,7 @@ public class UtilMsg {
     /**
      * 返回数据
      */
-    private  String data;
+    private  Object data;
 
     /**
      * @name MakeMsgToJsonString 得到msg的json字符串
@@ -37,11 +37,11 @@ public class UtilMsg {
         this.header = header;
     }
 
-    public String getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Object data) {
         this.data = data;
     }
 }
