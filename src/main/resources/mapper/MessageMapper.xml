@@ -8,11 +8,33 @@
         <result column="accept_user" jdbcType="VARCHAR" property="accept_user"/>
         <result column="message" jdbcType="VARCHAR" property="message"/>
         <result column="type" jdbcType="VARCHAR" property="type"/>
-        <result column="date" jdbcType="TIMESTAMP" property="date"/>
+        <result column="time" jdbcType="TIMESTAMP" property="date"/>
     </resultMap>
 
     <insert id="addMessage" parameterType="com.example.demo.Bean.Message">
-        insert into message (id,send_user,accept_user,message,message.type,message.date) values (#{message.id},#{message.send_user},#{message.accept_user},#{message.message},#{message.type},#{message.date})
+        insert into message (id,send_user,accept_user,message,message.type,message.time) values (#{message.id},#{message.send_user},#{message.accept_user},#{message.message},#{message.type},#{message.date})
     </insert>
+
+    <select id="findByMessage" parameterType="com.example.demo.Bean.Message" resultMap="MessageMap">
+        select * from message where 1=1
+        <if test="message.id != null and message.id != ''">
+            and id=#{message.id}
+        </if>
+        <if test="message.send_user != null and message.send_user != ''">
+            and send_user=#{message.send_user}
+        </if>
+        <if test="message.accept_user != null and message.accept_user != ''">
+            and accept_user=#{message.accept_user}
+        </if>
+        <if test="message.message != null and message.message != ''">
+            and message=#{message.message}
+        </if>
+        <if test="message.type != null and message.type != ''">
+            and type=#{message.type}
+        </if>
+        <if test="message.date != null">
+            and time=#{message.date}
+        </if>
+    </select>
 
 </mapper>

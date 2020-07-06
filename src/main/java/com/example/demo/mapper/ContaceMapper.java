@@ -15,7 +15,7 @@ import java.util.List;
 public interface ContaceMapper {
 
     /**
-     * @name findByContace 通过contace查询
+     * @name findByContace 通过contace查询 使用这个方法要把属性为empty的置为null
      * @param contace 封装查询信息的contace，因为Conrace.user1和Contace.user2地位相同，将以不管但条件，还是多条件都把查询信息封装进来
      *                故封装查询条件的时候，随便封装到user1 user2都行
      * @return java.util.List<com.example.demo.Bean.Contace>
