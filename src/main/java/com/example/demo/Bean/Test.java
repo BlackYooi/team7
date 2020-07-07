@@ -1,8 +1,11 @@
 package com.example.demo.Bean;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @description: 用于测试
  */
+@Component
 public class Test {
     /**
      * 测试的名字

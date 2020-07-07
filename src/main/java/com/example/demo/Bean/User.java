@@ -1,8 +1,11 @@
 package com.example.demo.Bean;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @description: 用户
  */
+@Component
 public class User {
 
     private String name;

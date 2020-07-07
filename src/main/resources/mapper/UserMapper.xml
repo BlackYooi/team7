@@ -29,6 +29,9 @@
         <if test="user.age != null and user.age != ''">
             and age=#{user.age}
         </if>
+        <if test="user.password != null and user.password != ''">
+            and password=#{user.password}
+        </if>
         <if test="user.identity != null and user.identity != ''">
             and identity=#{user.identity}
         </if>

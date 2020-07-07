@@ -1,10 +1,13 @@
 package com.example.demo.Bean;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Date;
 
 /**
  * @description: 消息对象
  */
+@Component
 public class Message {
 
     /**

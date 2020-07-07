@@ -1,8 +1,12 @@
 package com.example.demo.Bean;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 /**
  * @description: 黑名单
  */
+@Component
 public class Blacklist {
 
     /**

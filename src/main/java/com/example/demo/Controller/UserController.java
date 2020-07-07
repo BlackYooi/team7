@@ -116,7 +116,6 @@ public class UserController {
         if(userService.userLogin(user,session) == true){
             utilMsg.setHeader("验证通过");
             User u = (User) session.getAttribute(UtilSession.USER_SESSION_KEY);
-            System.out.println(u.toString());
         }
         else
         {

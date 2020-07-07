@@ -1,8 +1,11 @@
 package com.example.demo.Bean;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @description: 双向通讯录
  */
+@Component
 public class Contace {
 
     /**

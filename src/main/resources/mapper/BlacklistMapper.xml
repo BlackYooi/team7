@@ -13,7 +13,16 @@
     </insert>
 
     <delete id="deleteBlackList" parameterType="com.example.demo.Bean.Blacklist">
-        delete from blacklist where id=#{blacklist.id}
+        delete from blacklist where 1=1
+         <if test="blacklist.id != null and blacklist.id != ''">
+             and blacklist.id=#{blacklist.id}
+         </if>
+        <if test="blacklist.add_user != null and blacklist.add_user != ''">
+            and blacklist.add_user=#{blacklist.add_user}
+        </if>
+        <if test="blacklist.black_user != null and blacklist.black_user != ''">
+            and blacklist.black_user=#{blacklist.black_user}
+        </if>
     </delete>
 
     <select id="findByBlacklist" parameterType="com.example.demo.Bean.Blacklist" resultMap="BlackMap">
