@@ -14,7 +14,6 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/contace")
-@CrossOrigin
 public class ContaceController {
     @Autowired
     ContaceService contaceService;

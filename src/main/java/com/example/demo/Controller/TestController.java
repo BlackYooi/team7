@@ -13,7 +13,6 @@ import java.util.List;
  * @description: test
  */
 @RestController
-@CrossOrigin
 @RequestMapping("/test")
 public class TestController {
 

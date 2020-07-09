@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
  */
 @RestController
 @RequestMapping("/u")
-@CrossOrigin
 public class UserController {
 
     @Autowired

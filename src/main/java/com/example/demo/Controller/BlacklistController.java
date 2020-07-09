@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
  */
 @RestController
 @RequestMapping("/black")
-@CrossOrigin
 public class BlacklistController {
     @Autowired
     BlacklistService blacklistService;

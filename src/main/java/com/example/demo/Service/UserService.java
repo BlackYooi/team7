@@ -79,6 +79,7 @@ public class UserService {
     public boolean deleteUserById(String id){
         User user = new User();
         user.setId(id);
+        //删除 消息表 黑名单 通讯录相关信息
         if(this.deleteUser(user) == 1){
             return true;
         }
